@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple calc</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	       
+	<style type="text/css">
+		*{margin: 0px; padding: 0px; box-sizing: border-box;}
+
+		body{
+			background: black;
+		}
+		
+		.num{
+			padding:10px;
+			margin: 5px;
+			font-size: 20px;
+			cursor: pointer;
+			width: 35px;
+			height: 50px;
+			border-radius: 50%;
+			text-align: center;
+			border: none;
+			
+		}
+		.num:focus, .input:focus{
+			outline: 0;
+		}
+		.input{
+			height: 50px;
+			width: 185px;
+			font-size: 30px;
+			border-radius: 5px 5px 0px 5px;
+			background: #E0FFFF;
+			color: #00008B;
+		}
+		
+		.form{
+			margin-top:150px;
+			margin-left: 40%;
+			padding: 25px;
+			background: grey;
+			border-radius: 10px;
+			width: 245px;
+			
+		}
+
+		.equals{
+			width: 90px;
+			height: 50px;
+			border-radius: 50px;
+			border:none;
+			font-size: 25px;
+		}
+		.equals:focus{
+			outline: 0;
+		}
+
+
+		@media(max-width: 768px){
+
+			     .form{
+			     	width: 100%;
+			     	height: auto;
+			     	margin-top:50px;
+			     	padding: 20px;
+			     	text-align: center;
+			     }
+			     
+			     .num{
+			     	text-align: center;
+			     }
+		}
+
+		
+
+
+
+	</style>
+</head>
+<body>
+
+	
+		
+		<form name="form" class="form">
+			<input class="input" type="text" name="show"><br><br>
+			<input style="background: skyblue; color: white;" class="num" type="button" value="9" onclick="display(9)">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="8" onclick="display(8)">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="7" onclick="display(7)">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="C" onclick="clearAll()"><br>
+			
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="6" onclick="display(6)">
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="5" onclick="display(5)">
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="4" onclick="display(4)">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="+" onclick="display('+')"><br>
+			
+			<input style="background: #00BFFF; color: white;"  class="num" type="button" value="3" onclick="display(3)">
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="2" onclick="display(2)">
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="1" onclick="display(1)">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="-" onclick="display('-')"><br>	
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="." onclick="display('.')">	
+			<input style="background: #00BFFF; color: white;" class="num" type="button" value="0" onclick="display(0)">		
+			<input style="background: #00BFFF; color: white;"  class="num" type="button" value="/" onclick="display('/')">
+			<input style="background: skyblue; color: white;" class="num" type="button" value="*" onclick="display('*')">	<br>
+
+			<input style="background: #20B2AA; color: white;" class="equals " type="button" value="CE" onclick="clearLast()">
+			
+			<input style="background: #20B2AA; color: white;" class="equals" type="button" value="=" onclick="equalsTo()">
+			
+			
+			
+			
+			
+			</form>
+
+
+			<script type="text/javascript">
+				
+				function display(val){
+					document.form.show.value += val;
+
+				}
+
+				function clearAll(){
+					document.form.show.value = "";
+				}
+
+				function clearLast(){
+					var num = document.form.show.value;
+					document.form.show.value = num.substr(0, num.length - 1);
+
+				}
+				function equalsTo(){
+					document.form.show.value = eval(document.form.show.value);
+				}
+
+			</script>
+			
+		
+	
+
+</body>
+</html>
